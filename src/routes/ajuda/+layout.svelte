@@ -1,6 +1,3 @@
-<script>
-</script>
-
 <h1>Ajuda</h1>
 
 <div class="introducao">
