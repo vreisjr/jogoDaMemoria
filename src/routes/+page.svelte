@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { goto } from '$app/navigation';
   let tituloDoJogo: string = "JOGO DA MEMÓRIA";
   console.log("tituloDoJogo:", tituloDoJogo);
 </script>
@@ -8,7 +9,7 @@
 </h1>
 
 <br />
-<a class="menu" href="/jogar">Jogar</a>
+<button class="menu" on:click={() => goto('/jogar')}>Jogar</button>
 <br />
 <a class="menu" href="/sobre">Sobre</a>
 <br />

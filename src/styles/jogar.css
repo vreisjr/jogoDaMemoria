@@ -1,28 +1,60 @@
-table {
-    margin-left: auto;
-    margin-right: auto;
-    border-collapse: collapse;
-}
 
-td.cell {
-    border-style: solid;
-    border-width: 2px;
-    text-align: center;
-    font-weight: bold;
-    vertical-align: center;
-    height: 50px;
-    width: 50px;
-}
+    .cards {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 0.4rem;
+    }   
 
-td.character {
-    background-color: rgb(211, 211, 211);
-    cursor: pointer;
-}
+    .card {
+        height: 120px;
+        width: 120px;
+        font-size: 4rem;
+        background-color: var(--bg-2);
+        transition: rotate 0.3s ease-out;
+        transform-style: preserve-3d;
 
-td.treasure {
-    background-color: purple;
-    color: white;
-    cursor: pointer;
-    border-color: black;
-}
+        &.selected {
+            border: 4px solid var(--border);
+        }
 
+        &.flip {
+            rotate: y 180deg;
+            pointer-events: none;
+        }
+
+        & .back {
+            position: absolute;
+			inset: 0;
+			display: grid;
+			place-content: center;
+			backface-visibility: hidden;
+			rotate: y 180deg;
+        }
+
+        &.match {
+            transition: opacity 0.3s ease-out;
+            opacity: 0.4;
+        }
+    }
+
+    .timer {
+        transition: color 0.3s ease;
+    }
+
+    .pulse {
+        color: tomato;
+        animation: pulse 1s infinite ease;
+    }
+
+    @keyframes pulse {
+        to {
+            scale: 1.4;
+        }
+    }
+
+    .matches {
+        display: flex;
+        gap: 1rem;
+        margin-block: 2rem;
+        font-size: 3rem;
+    }
