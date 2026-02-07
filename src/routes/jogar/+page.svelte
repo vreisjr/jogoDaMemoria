@@ -14,6 +14,17 @@
     let timerId: number | null = null;
     let timeLeft = 60;
 
+    onMount(() => {
+        if (typeof window !== 'undefined') {
+            document.documentElement.classList.add('no-scroll');
+        }
+        return () => {
+            if (typeof window !== 'undefined') {
+                document.documentElement.classList.remove('no-scroll');
+            }
+        };
+    });
+
 
     function startTimer() {
         function countDown() {
@@ -35,7 +46,12 @@
 
     }
     function shuffle<T>(arr: T[]): T[] {
-        return arr.sort(() => Math.random() * 0.5);
+        const shuffled = [...arr];
+        for (let i = shuffled.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+        }
+        return shuffled;
     }
 
     function matchCards() {
@@ -43,11 +59,8 @@
         if (grid[i] === grid[j]) {
             matches = matches.concat(grid[i]);
             console.log("direct hit");
-        }
-
-        setTimeout(() => {
             selected = [];
-        }, 300);
+        }
     }
 
     function gameWon() {
@@ -71,7 +84,11 @@
     }
     
     function selectCard(cardIndex: number) {
-        selected = selected.concat(cardIndex);
+        if (selected.length === 2) {
+            selected = [cardIndex];
+        } else {
+            selected = selected.concat(cardIndex);
+        }
     }
 
     function canShowEmoji(emoji: string) {
@@ -101,30 +118,29 @@
 
 
 {#if state === 'playing'}
-<h1 class="timer" class:pulse={timeLeft <= 10}>{timeLeft}</h1>
-<div class="matches">
-    {#each matches as match}
-        <div>{match}</div>
-    {/each}
+<div class="game-header">
+    <a class="menu" href="/">Voltar ao Menu</a>
+    <h1 class="timer" class:pulse={timeLeft <= 10}>{timeLeft}</h1>
 </div>
+<div class="game-content">
+    <div class="cards">
+        {#each grid as emoji, cardIndex}
 
-<div class="cards">
-    {#each grid as emoji, cardIndex}
+        {@const isSelected = selected.includes(cardIndex)}
+        {@const isMatch = matches.includes(emoji)}
+        {@const isSelectedOrMatched = selected.includes(cardIndex) || matches.includes(emoji)}
+        
 
-    {@const isSelected = selected.includes(cardIndex)}
-    {@const isSelectedOrMatched = selected.includes(cardIndex) || matches.includes(emoji)}
-    {@const match = matches.includes(emoji)}
-    
-
-    <button 
-        class:selected = {isSelected}
-        class:match
-        class:flip = {isSelectedOrMatched}
-        disabled = {isSelectedOrMatched}
-        on:click={() => selectCard(cardIndex)} class="card">
-        <div class="back">{emoji}</div>
-    </button>
-    {/each}
+        <button 
+            class:selected = {isSelected}
+            class:match = {isMatch}
+            class:flip = {isSelectedOrMatched && !isMatch}
+            disabled = {isSelectedOrMatched}
+            on:click={() => selectCard(cardIndex)} class="card">
+            <div class="back"><img src={"/images/" + emoji} alt={emoji} /></div>
+        </button>
+        {/each}
+    </div>
 </div>
 {/if}
 
