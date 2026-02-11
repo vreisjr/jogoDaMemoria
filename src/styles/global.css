@@ -33,8 +33,7 @@ h1 {
 	margin-bottom: 5px;
 	border-style: solid;
 	border-width: 3px;
-	width: 20%;
-	padding: 5px;
+	width: 200px;
 	background-color: lightgrey;
 	border: 3px solid black;
 	text-align: center;
@@ -49,15 +48,6 @@ h1 {
 
 .menu:visited{
 	color: black;
-}
-
-img.sobre {
-	max-width:25%;
-	max-height:25%;
-}* {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
 }
 
 :root {

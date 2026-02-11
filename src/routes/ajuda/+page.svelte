@@ -27,42 +27,9 @@
 		O jogo será composto por cartas viradas para baixo. Cada participante, em sua vez, deverá virar
 		duas cartas e tentar encontrar o par correspondente. Caso acerte, continua jogando; se errar,
 		passa para o próximo jogador.
-	</p>
-
-	<p>
+	
 		Vence quem encontrar mais pares ao final. O diferencial deste jogo está nos temas
 		personalizados, tornando a experiência mais divertida e próxima da realidade dos participantes.
-	</p>
-
-	<h2>Temas disponíveis</h2>
-	<ol>
-		<li>Animes – Com imagens de personagens conhecidos</li>
-		<li>
-			“Os patos” – Serão fotos de pessoas da turma de IPI que perderão no jogo “nem à pato” (de
-			forma divertida e descontraída)
-		</li>
-		<li>Frutas – Imagens simples e ideais para níveis iniciais</li>
-		<li>Aleatório – Objetos variados para aumentar a dificuldade</li>
-	</ol>
-	<h2>Níveis de dificuldade</h2>
-	<p>Nível e Características</p>
-
-	<ul>
-		<li>Básico: Poucas cartas (ex: 6 pares) com imagens simples e repetitivas, como frutas</li>
-		<li>
-			Intermediário: Número médio de cartas (ex: 12 pares), tema animes ou objetos aleatórios
-			simples
-		</li>
-		<li>
-			Avançado: Muitas cartas (ex: 20 ou mais pares), podendo incluir imagens parecidas entre si e o
-			tema “os patos” com fotos reais para provocar confusão e tornar mais desafiador.
-		</li>
-	</ul>
-
-	<p>
-		Cada nível foi pensado para desenvolver progressivamente a capacidade cognitiva dos jogadores,
-		começando com associações simples até desafios mais complexos que exigem atenção e memória de
-		longo prazo.
 	</p>
 
 	<h2>Conclusão</h2>
